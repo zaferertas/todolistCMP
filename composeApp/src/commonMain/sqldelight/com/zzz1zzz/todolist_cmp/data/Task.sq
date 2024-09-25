@@ -1,0 +1,34 @@
+import kotlin.Boolean;
+import kotlinx.datetime.Instant;
+
+CREATE TABLE Taskdata (
+id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+title TEXT NOT NULL,
+description TEXT,
+isCompleted INTEGER AS Boolean NOT NULL DEFAULT 0,
+createdAt INTEGER AS Instant NOT NULL,
+completedAt INTEGER AS Instant
+);
+
+selectAll:
+SELECT * FROM Taskdata ORDER BY id DESC;
+
+selectById:
+SELECT * FROM Taskdata WHERE id = ?;
+
+insert:
+INSERT OR IGNORE INTO Taskdata(title, description, createdAt)
+VALUES (?, ?, ?);
+
+delete:
+DELETE FROM Taskdata WHERE id = ?;
+
+update:
+UPDATE Taskdata SET title = :title, description = :description WHERE id = :id;
+
+setCompleted:
+UPDATE Taskdata SET isCompleted = :isCompleted, completedAt = :completedAt WHERE id = :id;
+
+deleteAll:
+DELETE FROM Taskdata;
+
