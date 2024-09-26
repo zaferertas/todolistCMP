@@ -85,11 +85,6 @@ kotlin {
             implementation(libs.kotlinx.coroutines.swing)
             implementation(libs.sqldelight.jvm.driver)
         }
-//        jvmMain.dependencies {
-//            implementation(compose.desktop.currentOs)
-//            implementation(libs.kotlinx.coroutines.swing)
-//            implementation(libs.sqldelight.jvm.driver)
-//        }
     }
 }
 
